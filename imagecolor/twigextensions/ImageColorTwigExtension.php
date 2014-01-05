@@ -18,10 +18,10 @@ class ImageColorTwigExtension extends \Twig_Extension
         );
     }
 
-    public function imageColorFilter($image)
+    public function imageColorFilter($image, $position = 0)
     {
         
-		$color = craft()->imageColor->getColor($image);
+		$color = craft()->imageColor->getColor($image, $position);
         return $color ;
     }
 

@@ -95,7 +95,7 @@ class ColorsOfImage  {
 		return true;
 	}
 
-	public function getBackgroundColor( $use_palette = true ) {
+	public function getBackgroundColor( $use_palette = false ) {
 
 		$top_left_color = imagecolorsforindex( $this->workingImage, imagecolorat( $this->workingImage, 0, 0) );
 		$top_left = array( $top_left_color['red'], $top_left_color['green'], $top_left_color['blue'] );
@@ -109,12 +109,14 @@ class ColorsOfImage  {
 		$bottom_right_color = imagecolorsforindex( $this->workingImage, imagecolorat( $this->workingImage, $this->width - 1, $this->height - 1 ) );
 		$bottom_right = array( $bottom_right_color['red'], $bottom_right_color['green'], $bottom_right_color['blue'] );
 
-		if ( $use_palette ) {
+		/*
+if ( $use_palette ) {
 			$top_left 		= call_user_func_array( array( $this, 'getClosestColor' ), $top_left );
 			$top_right 		= call_user_func_array( array( $this, 'getClosestColor' ), $top_right );
 			$bottom_right	 	= call_user_func_array( array( $this, 'getClosestColor' ), $bottom_right );
 			$bottom_left 		= call_user_func_array( array( $this, 'getClosestColor' ), $bottom_left );
 		}
+*/
 
 		$colors = array( $top_left, $top_right, $bottom_left, $bottom_right);
 
