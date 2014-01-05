@@ -1,0 +1,12 @@
+{%- set value = (value is defined ? value : null) %}
+{%- set hasOptgroups = false -%}
+
+<p>
+{{color}}
+</p>
+
+
+{% includeCssResource "imagecolor/selectize.css" %}
+{% includeJsResource "imagecolor/selectize.min.js" %}
+
+
