@@ -1,4 +1,4 @@
-Craft-Image-Color
+Image Color Filter for Craft CMS
 =================
 
 Simple Image Color filter for Craft CMS.
