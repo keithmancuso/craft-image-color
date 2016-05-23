@@ -36,7 +36,7 @@ craft()->on('assets.onSaveFileContent', function(Event $event) {
     
     }
 	
-    public function hookAddTwigExtension()
+    public function addTwigExtension()
     {
         Craft::import('plugins.imagecolor.twigextensions.ImageColorTwigExtension');
         return new ImageColorTwigExtension();
