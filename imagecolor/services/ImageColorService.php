@@ -15,7 +15,8 @@ class ImageColorService extends BaseApplicationComponent
 $imageColor = new \ColorsOfImage( $image->url );
 		$colors = $imageColor->getProminentColors();
 */
-		$image_to_read = $image->url;
+		$siteUrl = craft()->config->get('siteUrl');
+		$image_to_read = $siteUrl . $image->url;
  
 		$pal = new \GetMostCommonColors();
 		$pal->image = $image_to_read;
