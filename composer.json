@@ -1,0 +1,12 @@
+{
+    "name": "familiar-studio/craft-image-color",
+    "description": "Simple Image Color filter for Craft CMS to extract colors from images.",
+    "type": "craft-plugin",
+    "license": "https://github.com/familiar-studio/craft-image-color/blob/master/Readme.md",
+    "homepage": "https://github.com/familiar-studio/craft-image-color",
+    "authors": [
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

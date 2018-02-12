@@ -15,6 +15,4 @@ class ImageColorRecord extends BaseRecord
             'color' => array(AttributeType::String, 'required' => true),
         );
     }
-    
-    
 }
