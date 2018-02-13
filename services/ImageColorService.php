@@ -26,13 +26,15 @@ class ImageColorService extends BaseApplicationComponent
         for ($i = 0; $i < $colors_to_save; $i ++) {
             $record = new ImageColorRecord();
             $record->isNewRecord(true);
-            
-            $record->setAttributes( array('imageId'=>$image->id, 'color'=>'#'.$colors_key[$i] ));
+            $record->setAttributes(array(
+                'imageId' => $image->id,
+                'color' => '#'.$colors_key[$i]
+            ));
             $record->save();
             $colorRecords[] = $record;
         }
         
-        return $colorRecords[0];
+        return $colorRecords;
     }
     
     public function getColor($image, $position)
@@ -46,13 +48,12 @@ class ImageColorService extends BaseApplicationComponent
             ->queryRow();
 
         if (!$colorRecord) {
+            $colorRecord = $this->saveColors($image)[0];
+        } 
 
-            $colorRecord = $this->saveColors($image);
-         } 
-        
         return $colorRecord['color'];
     }
-    
+
     public function getColors($image)
     {
         $colorRecords = craft()->db->createCommand()
@@ -61,10 +62,10 @@ class ImageColorService extends BaseApplicationComponent
             ->where('imageId = :imageId', array(':imageId' => $image->id))
             ->queryRow();
 
-        if (!$colorRecord) {
-            //$colorRecords = $this->saveColors($image);
+        if (!$colorRecords) {
+            $colorRecords = $this->saveColors($image);
         }
-        
+
         return $colorRecords;
     }
 }
